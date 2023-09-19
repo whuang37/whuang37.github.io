@@ -26,7 +26,7 @@ My research focus lies in human-computer interactions (HCI). Broadly speaking, I
 Currently, I work at [Pacific Northwest National Laboratory](https://www.pnnl.gov/) as an Applied Decision Systems and Analytics Intern developing interactive data interfaces and big data analyses. Previously I was a Biomechanics Co-Op at [Intel 3DAT](https://www.intel.com/content/www/us/en/architecture-and-technology/3d-athlete-tracking.html), Data Analytics and Sports Science Project Lead at [UCLA Athletics](https://uclabruins.com/), and a Data Science Fellow at the [National Institutes of Health -- Office of AIDS Research](https://www.oar.nih.gov/).
 
 
-When I'm not working or writing a website bio, I'm probably modding consoles and controllers, practicing fighting games, training for my next powerlifting meeting, or in a YouTube rabbit hole.
+When I'm not working or writing a website bio, I'm probably modding consoles and controllers, practicing fighting games, training for my next powerlifting meeting, or at the arcade.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder. -->
 
