@@ -9,7 +9,7 @@ nav_order: 1
 
 <!-- _pages/publications.md -->
 
-## Manuscripts in Preparation/Submission
+## manuscripts in preparation/submission
 
 <div class="publications">
 
