@@ -278,7 +278,7 @@ scholar:
   locale: en
 
   source: /_bibliography/
-  publications: publications.bib
+  bibliography: publications.bib
   posters: posters.bib
   bibliography_template: bib
 
