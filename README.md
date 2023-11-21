@@ -222,7 +222,7 @@ You need to take the following steps to get `al-folio` up and running on your lo
 $ docker-compose up
 ```
 
-Note that when you run it for the first time, it will download a docker image of size 400MB or so. 
+Note that when you run it for the first time, it will download a docker image of size 400MB or so.
 
 Now, feel free to customize the theme however you like (don't forget to change the name!). After you are done, you can use the same command (`docker-compose up`) to render the webpage with all you changes. Also, make sure to commit your final changes.
 
