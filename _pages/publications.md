@@ -8,6 +8,9 @@ nav_order: 1
 ---
 
 <!-- _pages/publications.md -->
+
+## Manuscripts in Preparation/Submission
+
 <div class="publications">
 
 {% bibliography -f {{ site.scholar.bibliography }} %}
