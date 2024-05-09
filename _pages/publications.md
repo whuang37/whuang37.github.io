@@ -17,18 +17,18 @@ nav_order: 1
 
 </div>
 
-## manuscripts in preparation/submission
-
-<div class="publications">
-
-{% bibliography -f {{ site.scholar.in_prep }} %}
-
-</div>
-
 ## posters, demos, extended abstracts
 
 <div class="publications">
 
 {% bibliography -f {{ site.scholar.posters }} %}
+
+</div>
+
+## manuscripts in preparation/submission
+
+<div class="publications">
+
+{% bibliography -f {{ site.scholar.in_prep }} %}
 
 </div>
