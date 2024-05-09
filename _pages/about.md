@@ -2,28 +2,27 @@
 layout: about
 title: about
 permalink: /
-subtitle:
+subtitle: 
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: headshot_new.png
   image_circular: false # crops the image to make it circular
-  # address: >
-  #   <p>555 your office number</p>
-  #   <p>123 your address street</p>
+  address: >
+    <p>✉ <a href="mailto:william.huang@ucla.edu">william.huang@ucla.edu</a></p>
   #   <p>Your City, State 12345</p>
 
-news: false  # includes a list of news items
+news: true  # includes a list of news items
 latest_posts: false  # includes a list of the newest posts
-selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+selected_papers: true # includes a list of papers marked as "selected={true}"
+social: false  # includes social icons at the bottom of the page
 ---
 
-I am a Fourth Year Undergraduate Student studying [Computer Engineering](https://www.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/). I am currently a member of the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/) and the [Roychowdhury Group](https://www.vwaniroychowdhury.com/).
+I am an incoming PhD Student in [Electrical and Computer Engineering](https://www.ee.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/) advised by [Professor Yang Zhang](https://yangzhang.dev/) in the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/).
 
-My research focus lies in human-computer interactions (HCI). Broadly speaking, I am interested in the study of how novel technologies affect marginalized groups and the use of interactive technologies, especially ones in mixed reality and gaming, to solve urgent accessibility problems.
+My research interests lie at the intersection of **Human-Computer Interaction (HCI)** and **AI**. I am interested in how we can leverage cutting-edge AI models to build interactive systems to provide personalized assistance that better reflects an individual user's unique needs. My work spans multiple application domains including but not limited to **accessibility**, **augmented/virtual reality**, and **health sensing**.
 
-Currently, I work at [Pacific Northwest National Laboratory](https://www.pnnl.gov/) as an Applied Decision Systems and Analytics Intern developing interactive data interfaces and big data analyses. Previously I was a Biomechanics Co-Op at [Intel 3DAT](https://www.intel.com/content/www/us/en/architecture-and-technology/3d-athlete-tracking.html), Data Analytics and Sports Science Project Lead at [UCLA Athletics](https://uclabruins.com/), and a Data Science Fellow at the [National Institutes of Health -- Office of AIDS Research](https://www.oar.nih.gov/).
+Previously, I worked at [Pacific Northwest National Laboratory](https://www.pnnl.gov/) as an Applied Decision Systems and Analytics Intern, [Intel 3DAT](https://www.intel.com/content/www/us/en/architecture-and-technology/3d-athlete-tracking.html) as a Biomechanics Co-Op, [UCLA Athletics](https://uclabruins.com/) as the Data Analytics and Sports Science Project Lead, and the [National Institutes of Health -- Office of AIDS Research](https://www.oar.nih.gov/) as a Data Science Fellow.
 
 
 When I'm not working or writing a website bio, I'm probably modding consoles and controllers, practicing fighting games, training for my next powerlifting meeting, or at the arcade.
