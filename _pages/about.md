@@ -18,7 +18,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I am an PhD Student in [Electrical and Computer Engineering](https://www.ee.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/) advised by [Professor Yang Zhang](https://yangzhang.dev/) in the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/).
+I am a PhD Student in [Electrical and Computer Engineering](https://www.ee.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/) advised by [Professor Yang Zhang](https://yangzhang.dev/) in the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/).
 
 My research interests lie at the intersection in the field of **Human-Computer Interaction (HCI)** and **AI**. I am interested in how we can build and leverage human-centric digital twins to design more personalized sensing technologies and enable finer grain control over interactive systems and AI models without the physical constraints of traditional data collection methods. My work spans multiple application domains including but not limited to **accessibility**, **augmented/virtual reality**, and **health sensing**.
 
