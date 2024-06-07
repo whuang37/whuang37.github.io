@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: 
+subtitle:
 
 profile:
   align: right
@@ -18,14 +18,14 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I am an incoming PhD Student in [Electrical and Computer Engineering](https://www.ee.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/) advised by [Professor Yang Zhang](https://yangzhang.dev/) in the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/).
+I am an PhD Student in [Electrical and Computer Engineering](https://www.ee.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/) advised by [Professor Yang Zhang](https://yangzhang.dev/) in the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/).
 
-My research interests lie at the intersection of **Human-Computer Interaction (HCI)** and **AI**. I am interested in how we can leverage cutting-edge AI models to build interactive systems to provide personalized assistance that better reflects an individual user's unique needs. My work spans multiple application domains including but not limited to **accessibility**, **augmented/virtual reality**, and **health sensing**.
+My research interests lie at the intersection in the field of **Human-Computer Interaction (HCI)** and **AI**. I am interested in how we can build and leverage human-centric digital twins to design more personalized sensing technologies and enable finer grain control over interactive systems and AI models without the physical constraints of traditional data collection methods. My work spans multiple application domains including but not limited to **accessibility**, **augmented/virtual reality**, and **health sensing**.
 
 Previously, I worked at [Pacific Northwest National Laboratory](https://www.pnnl.gov/) as an Applied Decision Systems and Analytics Intern, [Intel 3DAT](https://www.intel.com/content/www/us/en/architecture-and-technology/3d-athlete-tracking.html) as a Biomechanics Co-Op, [UCLA Athletics](https://uclabruins.com/) as the Data Analytics and Sports Science Project Lead, and the [National Institutes of Health -- Office of AIDS Research](https://www.oar.nih.gov/) as a Data Science Fellow.
 
 
-When I'm not working or writing a website bio, I'm probably modding consoles and controllers, practicing fighting games, training for my next powerlifting meeting, or at the arcade.
+When I'm not working or writing a website bio, I'm probably modding consoles and controllers, training for my next powerlifting meeting, or at the arcade.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder. -->
 
