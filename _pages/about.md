@@ -9,7 +9,7 @@ profile:
   image: headshot_new.png
   image_circular: false # crops the image to make it circular
   address: >
-    <p>✉ william [dot] huang [at] ucla [dot] edu</p>
+    <p>✉ william[dot]huang[at]ucla[dot]edu</p>
   #   <p>Your City, State 12345</p>
 
 news: true  # includes a list of news items
@@ -20,7 +20,7 @@ social: false  # includes social icons at the bottom of the page
 
 I am a PhD Student in [Electrical and Computer Engineering](https://www.ee.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/) advised by [Professor Yang Zhang](https://yangzhang.dev/) in the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/).
 
-My research interests lie at the intersection between **Human-Computer Interaction (HCI)** and **Artificial Intelligence (AI)**. I am broadly interested in how we can build data-centric approaches to the personalization of mobility and spatial technologies. More specifically, I design human-centric AI simulations and digital twins which can be used as highly accessible alternatives to traditional data collection methods to easily generate user-specific data and personalize existing technologies. By evaluating these systems, I aim to understand how they can be built and deployed to build a more inclusive world for the general public and marginalized groups alike. My work spans multiple application domains including but not limited to **accessibility**, **augmented/virtual reality**, and **health sensing**.
+My research interests lie at the intersection between **Human-Computer Interaction (HCI)** and **Artificial Intelligence (AI)**. I am broadly interested in how we can build data-centric approaches to the personalization of mobility and spatial technologies. More specifically, I develop human-centric AI simulations and digital twins which can be used as highly accessible alternatives to traditional data collection methods to easily generate user-specific data and personalize existing technologies. By evaluating these systems, I aim to understand how they can be designed and deployed to build a more inclusive world for the general public and marginalized groups alike. My work spans multiple application domains including but not limited to **accessibility**, **augmented/virtual reality**, and **health sensing**.
 
 Previously, I worked at [Pacific Northwest National Laboratory](https://www.pnnl.gov/) as an Applied Decision Systems and Analytics Intern, [Intel 3DAT](https://www.intel.com/content/www/us/en/architecture-and-technology/3d-athlete-tracking.html) as a Biomechanics Co-Op, [UCLA Athletics](https://uclabruins.com/) as the Data Analytics and Sports Science Project Lead, and the [National Institutes of Health -- Office of AIDS Research](https://www.oar.nih.gov/) as a Data Science Fellow.
 
