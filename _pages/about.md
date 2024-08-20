@@ -9,7 +9,7 @@ profile:
   image: headshot_new.png
   image_circular: false # crops the image to make it circular
   address: >
-    <p>✉ william[dot]huang[at]ucla[dot]edu</p>
+    # <p>✉ william[dot]huang[at]ucla[dot]edu</p>
   #   <p>Your City, State 12345</p>
 
 news: true  # includes a list of news items
@@ -25,6 +25,8 @@ My research interests lie at the intersection between **Human-Computer Interacti
 Previously, I worked at [Pacific Northwest National Laboratory](https://www.pnnl.gov/) as an Applied Decision Systems and Analytics Intern, [Intel 3DAT](https://www.intel.com/content/www/us/en/architecture-and-technology/3d-athlete-tracking.html) as a Biomechanics Co-Op, [UCLA Athletics](https://uclabruins.com/) as the Data Analytics and Sports Science Project Lead, and the [National Institutes of Health -- Office of AIDS Research](https://www.oar.nih.gov/) as a Data Science Fellow.
 
 When I am not working or writing a website bio, I am probably modding consoles and controllers, training for my next powerlifting meeting, or at the arcade.
+
+I would love to chat about research or anything else! The best way to reach me is by email at william[dot]huang[at]ucla[dot]edu.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder. -->
 
