@@ -16,7 +16,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I am a PhD Student in [Electrical and Computer Engineering](https://www.ee.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/) advised by [Professor Yang Zhang](https://yangzhang.dev/) in the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/).
+I am a PhD Student in [Electrical and Computer Engineering](https://www.ee.ucla.edu/) at the [University of California, Los Angeles (UCLA)](https://www.ucla.edu/) advised by [Professor Yang Zhang](https://yangzhang.dev/) in the [Human-Centered Computing & Intelligent Sensing Lab](https://hilab.dev/). I am currently supported by the [NSF Graduate Research Fellowship (NSF GRFP)](https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program).
 
 My research interests lie at the intersection between **Human-Computer Interaction (HCI)** and **Artificial Intelligence (AI)**. I am broadly interested in how we can build data-centric approaches to the personalization of mobility and spatial technologies. By evaluating these systems, I aim to understand how they can be designed and deployed at scale to build a more inclusive world for the general public and marginalized groups alike. My work spans multiple application domains including but not limited to **accessibility**, **augmented/virtual reality**, and **health sensing**.
 
