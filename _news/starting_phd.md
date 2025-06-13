@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Accepted an offer for an MS/Ph.D. in ECE at UCLA.
+Accepted an offer for an MS/PhD in ECE at UCLA.
