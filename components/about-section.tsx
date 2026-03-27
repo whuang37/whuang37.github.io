@@ -4,7 +4,7 @@ import cvPdf from "@/content/pdfs/CV_WilliamHuang.pdf"
 
 export function AboutSection() {
   return (
-    <div className="flex flex-col justify-between min-h-full">
+    <div className="flex h-full min-h-full flex-col">
       <div className="space-y-8">
       <div>
         <img
@@ -161,7 +161,9 @@ export function AboutSection() {
       </div>
       </div>
 
-      <Footer />
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   )
 }

@@ -89,7 +89,7 @@ export default function PersonalWebsite() {
         </>
       ) : (
         <main className="flex-1 h-full overflow-y-auto publication-scroll">
-          <div className="px-8 md:px-16 max-w-3xl pt-28 md:pt-16 flex flex-col justify-between min-h-full pb-0">
+          <div className="px-8 md:px-16 max-w-3xl pt-28 md:pt-16 flex h-full flex-col min-h-full pb-0">
             <AboutSection />
           </div>
         </main>
