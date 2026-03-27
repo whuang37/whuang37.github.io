@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { ResizeHandle } from "./resize-handle"
 
-type Tab = "about" | "bookshelf" | "notes"
+type Tab = "about" | "publications" | "photography"
 
 interface SidebarProps {
   activeTab: Tab
@@ -13,13 +13,13 @@ interface SidebarProps {
 }
 
 export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown, mobileMenuOpen }: SidebarProps) {
-  const tabs: Tab[] = ["about", "bookshelf", "notes"]
+  const tabs: Tab[] = ["about", "publications", "photography"]
 
   return (
     <aside
       style={{ width: `${width}px`, borderRight: '3px double var(--border)' }}
       className={cn(
-        "relative shrink-0 bg-background",
+        "relative shrink-0 bg-background md:sticky md:top-0 md:h-screen",
         "max-md:fixed max-md:inset-y-0 max-md:left-0 max-md:z-40 max-md:shadow-lg",
         "max-md:transition-transform max-md:duration-150",
         mobileMenuOpen ? "max-md:translate-x-0" : "max-md:-translate-x-full",
@@ -38,16 +38,6 @@ export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown
         >
         </div>
       </div>
-      <style jsx>{`
-        @keyframes sheen {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(200%);
-          }
-        }
-      `}</style>
       <nav className="flex flex-col gap-2 p-8 pt-54">
         {tabs.map((tab) => (
           <button

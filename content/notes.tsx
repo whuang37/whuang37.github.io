@@ -9,23 +9,16 @@ export interface Note {
 export const notes: Note[] = [
   {
     "slug": "favourite-links",
-    "title": "Flo's Bookmarks",
-    "date": "10-27-2025",
+    "title": "Example: Resource Collection",
+    "date": "January 2025",
     "excerpt": "",
-    "content": "<p>A collection of websites, articles, and resources I find myself returning to.</p>\n<h2>Writing</h2>\n<ul><li><a href=\"https://map.simonsarris.com/p/breadcrumbs\" target=\"_blank\" rel=\"noopener noreferrer\">Breadcrumbs</a> - Simon Sarris</li><li><a href=\"https://boxx.substack.com/p/loneliness-the-four-circles-of-belonging\" target=\"_blank\" rel=\"noopener noreferrer\">The Four Circles of Belonging</a> - Joss Murphy</li></ul>\n<h2>Resources</h2>\n<ul><li><a href=\"https://emojicombos.com/kaomoji\" target=\"_blank\" rel=\"noopener noreferrer\">Kaomoji</a> - Copy paste kaomoji ⋆˙⟡</li></ul>"
+    "content": "<p>This note demonstrates how you can organize and share collections of links, resources, or bookmarks.</p>\n<h2>Design Resources</h2>\n<ul><li><a href=\"https://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Link 1</a> - A great design resource</li><li><a href=\"https://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Link 2</a> - Another helpful tool</li></ul>\n<h2>Reading List</h2>\n<ul><li><a href=\"https://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Article</a> - An interesting article</li><li><a href=\"https://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Essay</a> - A thought-provoking piece</li></ul>\n<h2>Tools</h2>\n<ul><li><a href=\"https://example.com\" target=\"_blank\" rel=\"noopener noreferrer\">Example Tool</a> - A useful utility</li></ul>"
   },
   {
     "slug": "hello-world",
-    "title": "Hello world",
-    "date": "10-26-2025",
+    "title": "Welcome to Your New Site",
+    "date": "January 2025",
     "excerpt": "",
-    "content": "<p>I've been meaning to update my personal website for sometime.</p>\n<p>Around 11pm last night, I finally sublimated desire into action. So, I opened up v0 and prompted into the wee hours of the morning: happily click-clacking until my laptop peeped a soft sigh of exhaustion and went kaput for the night.</p>\n<p>And 20 hours later... here we are.</p>\n<p>Expect more updates soon.</p>\n<p>With love,</p>\n<p>Flo</p>"
-  },
-  {
-    "slug": "long-game",
-    "title": "Playing the Long Game",
-    "date": "10-27-2025",
-    "excerpt": "",
-    "content": "<p>Last Monday I enjoyed a particularly unpleasant bout of food poisioning.</p>\n<p>The next day did not spare me aftershocks of nausea. I felt less productive than unusual.</p>\n<p>So, I decided to make up for it in the evening: I would get in a bunch of small UI PR's!</p>\n<p>After click-clacking late into the night, I felt proud of my efforts.</p>\n<p>Cue dramatic irony: unbeknownst to my naiveté, the dev resources it took to review these PRs more than counteracted my good intentions.</p>\n<p>Intentions, whether pure or foul, matter less than the actual outcomes.</p>\n<blockquote>Thoughtful intention persists beyond a flurry of heedless goodwill.</blockquote>\n<p>I hope to play the long game in more areas of my life.</p>"
+    "content": "<p>This is an example note to demonstrate how the content system works.</p>\n<p>You can write your thoughts, essays, or any content you'd like to share here. The MDX format gives you full control over your writing with support for:</p>\n<ul><li>**Markdown formatting** for rich text</li><li>Frontmatter for metadata (title, date, excerpt)</li><li>Custom React components (if you want to extend it)</li></ul>\n<h2>Getting Started</h2>\n<p>Simply edit this file in `content/notes/` or create new `.mdx` files to add your own content.</p>\n<p>The build system will automatically process your content and make it available on your site.</p>"
   }
 ]

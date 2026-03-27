@@ -28,33 +28,48 @@ export function NotesList({ selectedNote, onSelectNote, width, isDragging, onMou
     <div
       style={{ width: `${width}px` }}
       className={cn(
-        "relative overflow-y-auto shrink-0 border-r border-border",
+        "relative shrink-0 border-r border-border h-full overflow-y-auto publication-scroll",
         selectedNote && "max-md:hidden",
       )}
     >
-      <div className="px-8 md:px-16 pt-28 md:pt-16 pb-0 max-w-3xl flex flex-col justify-between min-h-full">
+      <div className="px-8 md:px-16 pb-0 max-w-3xl flex flex-col justify-between min-h-full">
         <div>
-          <h1 className="text-4xl font-serif mb-8">Notes</h1>
-          <p className="text-muted-foreground mb-8">Field observations & works-in-progress.</p>
-          <div className="space-y-0">
-            {sortedNotes.map((note, index) => (
-              <div key={note.slug} className="relative">
+          <div className="sticky top-0 z-10 bg-background pt-28 md:pt-16 pb-8">
+            <h1 className="text-4xl font-serif">Notes</h1>
+            <p className="text-muted-foreground mt-2">Field observations & works-in-progress.</p>
+          </div>
+
+          <ol className="space-y-8 pr-2 pb-2">
+            {sortedNotes.map((note) => (
+              <li key={note.slug} className="relative text-foreground">
                 <button
                   onClick={() => onSelectNote(note.slug)}
-                  className="w-full text-left space-y-1.5 py-3 transition-colors group"
+                  className="w-full text-left space-y-1 py-1 transition-colors group cursor-pointer relative"
                 >
-                  <div className="flex items-baseline gap-2">
-                    <h2 className="text-base font-medium text-foreground">{note.title}</h2>
+                  <span
+                    className={cn(
+                      "absolute -left-4 top-1 text-sm leading-6 text-[oklch(0.42_0.18_25)] transition-opacity pointer-events-none",
+                      selectedNote === note.slug ? "opacity-100" : "opacity-0",
+                    )}
+                  >
+                    &gt;
+                  </span>
+                  <div className="flex items-start gap-2">
+                    <h2
+                      className={cn(
+                        "text-base font-medium text-foreground transition-opacity opacity-100 group-hover:opacity-45",
+                        selectedNote === note.slug && "group-hover:opacity-65",
+                      )}
+                    >
+                      {note.title}
+                    </h2>
                     <span className="text-muted-foreground text-sm transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                   </div>
-                  <p className="text-xs text-muted-foreground font-mono uppercase tracking-widest">{note.date}</p>
+                  <p className="text-xs text-muted-foreground font-mono uppercase tracking-widest transition-opacity group-hover:opacity-70">{note.date}</p>
                 </button>
-                {index < sortedNotes.length - 1 && (
-                  <div className="h-px bg-border my-4" />
-                )}
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
 
         <Footer />

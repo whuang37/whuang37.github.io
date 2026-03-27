@@ -37,7 +37,7 @@ yarn install
 npm run dev
 ```
 
-Visit `http://localhost:3000` to see your site.
+Visit `http://localhost:5173` to see your site.
 
 4. **Customize your content** (see sections below)
 
@@ -110,7 +110,7 @@ This template uses a build-time content generation system:
 
 1. **Write**: Create `.mdx` files in `content/notes/` or `content/books/`
 2. **Generate**: `scripts/generate-content.mjs` converts MDX to static TypeScript files
-3. **Build**: Next.js builds your site with pre-processed HTML content
+3. **Build**: Vite bundles your site with pre-processed HTML content
 4. **Deploy**: Static, performant site ready to ship
 
 No runtime parsing means blazing-fast page loads!
@@ -121,11 +121,11 @@ This template is ready to deploy to:
 
 - **Vercel** (recommended): Connect your GitHub repo
 - **Netlify**: Drag and drop your build folder
-- **Any static host**: Run `npm run build` and deploy the `.next` folder
+- **Any static host**: Run `npm run build` and deploy the `dist` folder
 
 ## Tech Stack
 
-- **Framework**: Next.js 16
+- **Framework**: Vite + React 19
 - **Styling**: Tailwind CSS 4
 - **UI Components**: Radix UI primitives
 - **Content**: MDX with gray-matter
