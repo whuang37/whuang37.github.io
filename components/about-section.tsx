@@ -67,7 +67,7 @@ export function AboutSection() {
           </a>
           .
         </p>
-        <p className="text-foreground">My research interests lie at the intersection of <b>Human-Computer Interaction (HCI)</b>, <b>Artificial Intelligence (AI)</b> and <b>Sensing</b>. I am broadly interested in the elicitation and encoding of abstract spatial and mobility preferences which dictate how people experience the physical world. By effectively modeling spatial preferences, I aim to develop more inclusive, practical systems to support people in real-world tasks. My work spans multiple application domains including but not limited to <b>accessibility</b>, <b>extended reality</b>, and <b>health sensing</b>. </p>
+        <p className="text-foreground">My research interests lie at the intersection of <b>Human-Computer Interaction (HCI)</b>, <b>Artificial Intelligence (AI)</b>, and <b>Sensing</b>. I am broadly interested in the elicitation and encoding of abstract spatial and mobility preferences which dictate how people experience the physical world. By effectively modeling spatial preferences, I aim to develop more inclusive, practical systems to support people in real-world tasks. My work spans multiple application domains including but not limited to <b>accessibility</b>, <b>extended reality</b>, and <b>health sensing</b>. </p>
         <p className="text-foreground">
           Previously, I worked at{" "}
           <a
