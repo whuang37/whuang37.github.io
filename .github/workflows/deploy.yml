@@ -27,13 +27,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies and build
         run: |
-          corepack enable
-          corepack npm install --frozen-lockfile
-          corepack npm run build
+          npm install
+          npm run build
 
       - name: Upload dist artifact
         uses: actions/upload-pages-artifact@v3
