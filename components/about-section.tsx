@@ -80,12 +80,12 @@ export function AboutSection() {
           </a>{" "}
           as an Applied Decision Systems and Analytics Intern,{" "}
           <a
-            href="https://www.intel.com/content/www/us/en/architecture-and-technology/3d-athlete-tracking.html"
+            href="https://www.intel.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
           >
-            Intel 3DAT
+            Intel
           </a>{" "}
           as a Biomechanics Co-Op,{" "}
           <a
