@@ -10,6 +10,7 @@ import { PublicationReader } from "@/components/publication-reader"
 import { ContentPanel } from "@/components/content-panel"
 
 type Tab = "about" | "publications" | "photography"
+const SIDEBAR_WIDTH = 192
 
 export default function PersonalWebsite() {
   const [activeTab, setActiveTab] = useState<Tab>("about")
@@ -17,18 +18,17 @@ export default function PersonalWebsite() {
   const [selectedPublication, setSelectedPublication] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const sidebar = useResizable({ initialWidth: 192, minWidth: 150, maxWidth: 400 })
   const photographyList = useResizable({
     initialWidth: 600,
     minWidth: 200,
     maxWidth: 600,
-    offsetX: sidebar.width,
+    offsetX: SIDEBAR_WIDTH,
   })
   const publicationList = useResizable({
     initialWidth: 600,
     minWidth: 200,
     maxWidth: 600,
-    offsetX: sidebar.width,
+    offsetX: SIDEBAR_WIDTH,
   })
 
   const handleTabChange = (tab: Tab) => {
@@ -51,9 +51,7 @@ export default function PersonalWebsite() {
       <Sidebar
         activeTab={activeTab}
         onTabChange={handleTabChange}
-        width={sidebar.width}
-        isDragging={sidebar.isDragging}
-        onMouseDown={sidebar.handleMouseDown}
+        width={SIDEBAR_WIDTH}
         mobileMenuOpen={mobileMenuOpen}
       />
 

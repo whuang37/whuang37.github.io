@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils"
-import { ResizeHandle } from "./resize-handle"
 
 type Tab = "about" | "publications" | "photography"
 
@@ -7,12 +6,10 @@ interface SidebarProps {
   activeTab: Tab
   onTabChange: (tab: Tab) => void
   width: number
-  isDragging: boolean
-  onMouseDown: (e: React.MouseEvent) => void
   mobileMenuOpen: boolean
 }
 
-export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown, mobileMenuOpen }: SidebarProps) {
+export function Sidebar({ activeTab, onTabChange, width, mobileMenuOpen }: SidebarProps) {
   const tabs: Tab[] = ["about", "publications", "photography"]
 
   return (
@@ -53,7 +50,6 @@ export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown
         ))}
       </nav>
 
-      <ResizeHandle onMouseDown={onMouseDown} isDragging={isDragging} />
     </aside>
   )
 }
