@@ -26,25 +26,25 @@ export function PhotographyList({ selectedPhoto, onSelectPhoto, width, isDraggin
   const sortedPhotos = sortPhotosByDate()
   return (
     <div
-      style={{ width: `${width}px` }}
+      style={{ width: `min(100vw, ${width}px)` }}
       className={cn(
-        "relative shrink-0 border-r border-border h-full overflow-y-auto publication-scroll",
+        "relative h-full shrink-0 overflow-y-auto overflow-x-hidden border-r border-border publication-scroll",
         selectedPhoto && "max-md:hidden",
       )}
     >
-      <div className="px-8 md:px-16 pb-0 max-w-3xl flex flex-col justify-between min-h-full">
-        <div>
+      <div className="flex min-h-full min-w-0 max-w-3xl flex-col justify-between px-6 pb-0 md:px-16">
+        <div className="min-w-0">
           <div className="sticky top-0 z-10 bg-background pt-28 md:pt-16 pb-8">
             <h1 className="text-4xl font-serif">Photography</h1>
             <p className="text-muted-foreground mt-2">Snapshots of my PhD.</p>
           </div>
 
-          <ol className="space-y-8 pr-2 pb-2">
+          <ol className="space-y-8 pb-2 pr-2">
             {sortedPhotos.map((photo) => (
-              <li key={photo.slug} className="relative text-foreground">
+              <li key={photo.slug} className="relative min-w-0 text-foreground">
                 <button
                   onClick={() => onSelectPhoto(photo.slug)}
-                  className="w-full text-left space-y-1 py-1 transition-colors group cursor-pointer relative"
+                  className="group relative w-full min-w-0 cursor-pointer space-y-1 py-1 text-left transition-colors"
                 >
                   <span
                     className={cn(
@@ -54,18 +54,18 @@ export function PhotographyList({ selectedPhoto, onSelectPhoto, width, isDraggin
                   >
                     &gt;
                   </span>
-                  <div className="flex items-start gap-2">
+                  <div className="flex min-w-0 items-start gap-2">
                     <h2
                       className={cn(
-                        "text-base font-medium text-foreground transition-opacity opacity-100 group-hover:opacity-45",
+                        "min-w-0 break-words text-base font-medium text-foreground opacity-100 transition-opacity [overflow-wrap:anywhere] group-hover:opacity-45",
                         selectedPhoto === photo.slug && "group-hover:opacity-65",
                       )}
                     >
                       {photo.title}
                     </h2>
-                    <span className="text-muted-foreground text-sm transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                    <span className="shrink-0 text-sm text-muted-foreground transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
                   </div>
-                  <p className="text-xs text-muted-foreground font-mono uppercase tracking-widest transition-opacity group-hover:opacity-70">{photo.date}</p>
+                  <p className="break-words font-mono text-xs uppercase tracking-widest text-muted-foreground transition-opacity [overflow-wrap:anywhere] group-hover:opacity-70">{photo.date}</p>
                 </button>
               </li>
             ))}

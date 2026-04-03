@@ -45,21 +45,21 @@ export function PublicationsList({
 
   return (
     <div
-      style={{ width: `${width}px` }}
+      style={{ width: `min(100vw, ${width}px)` }}
       className={cn(
-        "relative shrink-0 border-r border-border h-full overflow-y-auto publication-scroll",
+        "relative h-full shrink-0 overflow-y-auto overflow-x-hidden border-r border-border publication-scroll",
         selectedPublication && "max-md:hidden",
       )}
     >
-      <div className="px-8 md:px-16 pb-0 max-w-3xl flex flex-col justify-between min-h-full">
-        <div>
+      <div className="flex min-h-full min-w-0 max-w-3xl flex-col justify-between px-6 pb-0 md:px-16">
+        <div className="min-w-0">
           <div className="sticky top-0 z-10 bg-background pt-28 md:pt-16 pb-8">
             <h1 className="text-4xl font-serif">Publications</h1>
           </div>
 
-          <div className="space-y-8 pr-2 pb-2">
+          <div className="space-y-8 pb-2 pr-2">
             {groupedPublications.map(([year, entries]) => (
-              <div key={year}>
+              <div key={year} className="min-w-0">
                 <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">{year}</h2>
                 <ol className="space-y-8">
                   {entries.map((publication) => {
@@ -67,10 +67,10 @@ export function PublicationsList({
                     const isSelected = selectedPublication === publication.slug
 
                     return (
-                      <li key={publication.slug} className="text-foreground relative">
+                      <li key={publication.slug} className="relative min-w-0 text-foreground">
                         <button
                           onClick={() => onSelectPublication(publication.slug)}
-                          className="w-full text-left space-y-1 py-1 transition-colors group cursor-pointer relative"
+                          className="group relative w-full min-w-0 cursor-pointer space-y-1 py-1 text-left transition-colors"
                         >
                           <span
                             className={cn(
@@ -80,35 +80,35 @@ export function PublicationsList({
                           >
                             &gt;
                           </span>
-                          <div className="flex items-start gap-2">
+                          <div className="flex min-w-0 items-start gap-2">
                             <div
                               className={cn(
-                                "text-base font-medium text-foreground transition-opacity opacity-100 group-hover:opacity-45",
+                                "min-w-0 break-words text-base font-medium text-foreground opacity-100 transition-opacity [overflow-wrap:anywhere] group-hover:opacity-45",
                                 isSelected && "group-hover:opacity-65",
                               )}
                             >
                               {publication.title}
                             </div>
-                            <span className="text-muted-foreground text-sm transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                            <span className="shrink-0 text-sm text-muted-foreground transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
                               ↗
                             </span>
                           </div>
-                          <p className="text-xs text-muted-foreground transition-opacity group-hover:opacity-70">
+                          <p className="break-words text-xs text-muted-foreground transition-opacity [overflow-wrap:anywhere] group-hover:opacity-70">
                             {publication.authors}
                           </p>
-                          <p className="text-xs italic text-muted-foreground transition-opacity group-hover:opacity-70">
+                          <p className="break-words text-xs italic text-muted-foreground transition-opacity [overflow-wrap:anywhere] group-hover:opacity-70">
                             {publication.proceeding || "Proceeding not specified"}
                           </p>
                         </button>
                         {links.length > 0 && (
-                          <div className="flex flex-wrap items-center gap-3 text-xs font-mono uppercase tracking-widest pt-1">
+                          <div className="flex min-w-0 flex-wrap items-center gap-3 pt-1 font-mono text-xs uppercase tracking-widest">
                             {links.map(([name, url]) => (
                               <a
                                 key={`${publication.slug}-${name}`}
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-foreground transition-colors"
+                                className="break-words text-muted-foreground transition-colors [overflow-wrap:anywhere] hover:text-foreground"
                               >
                                 {linkLabels[name] ?? name}
                               </a>

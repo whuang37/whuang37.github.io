@@ -39,7 +39,7 @@ export default function PersonalWebsite() {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex min-h-screen overflow-x-clip md:h-screen md:overflow-hidden">
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className="fixed top-6 left-6 z-50 md:hidden bg-background border border-border rounded-lg p-2.5 hover:bg-muted shadow-sm"
@@ -88,8 +88,8 @@ export default function PersonalWebsite() {
           )}
         </>
       ) : (
-        <main className="flex-1 h-full overflow-y-auto publication-scroll">
-          <div className="px-8 md:px-16 max-w-3xl pt-28 md:pt-16 flex h-full flex-col min-h-full pb-0">
+        <main className="min-w-0 flex-1 overflow-y-auto overflow-x-hidden publication-scroll">
+          <div className="flex min-h-full w-full max-w-3xl flex-col px-6 pt-28 pb-0 md:px-16 md:pt-16">
             <AboutSection />
           </div>
         </main>
