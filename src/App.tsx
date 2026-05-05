@@ -10,7 +10,7 @@ import { PublicationReader } from "@/components/publication-reader"
 import { ContentPanel } from "@/components/content-panel"
 
 type Tab = "about" | "publications" | "photography"
-const SIDEBAR_WIDTH = 192
+const SIDEBAR_WIDTH = 172
 
 export default function PersonalWebsite() {
   const [activeTab, setActiveTab] = useState<Tab>("about")

@@ -20,10 +20,10 @@ export const publications: Publication[] = [
     "slug": "deltadorsal",
     "title": "DeltaDorsal: Enhancing Hand Pose Estimation with Dorsal Features in Egocentric Views",
     "authors": "William Huang, Siyou Pei, Leyi Zou, Eric J. Gonzalez, Ishan Chatterjee, Yang Zhang",
-    "proceeding": "Proceedings of CHI 2026 To Appear",
+    "proceeding": "Proceedings of CHI 2026",
     "year": 2026,
     "links": {
-      "doi": "https://doi.org/10.48550/arXiv.2601.15516",
+      "doi": "https://doi.org/10.1145/3772318.3790493",
       "arxiv": "https://arxiv.org/abs/2601.15516",
       "code": "https://github.com/hilab-open-source/deltadorsal"
     },
