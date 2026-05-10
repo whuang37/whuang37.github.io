@@ -32,7 +32,7 @@ export function PhotographyList({ selectedPhoto, onSelectPhoto, width, isDraggin
       header={
         <>
           <h1 className="text-4xl font-serif">Photography</h1>
-          <p className="mt-2 text-muted-foreground">Snapshots of my PhD.</p>
+          <p className="mt-2 text-muted-foreground">Moments from my PhD when I remember my camera.</p>
         </>
       }
     >
