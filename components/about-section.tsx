@@ -20,7 +20,7 @@ export function AboutSection() {
 
       <div className="min-w-0 space-y-4">
         <p className="text-foreground break-words">
-          I am a PhD Student in the department of{" "}
+          I am a PhD Candidate in the department of{" "}
           <a
             href="https://www.ee.ucla.edu/"
             target="_blank"
