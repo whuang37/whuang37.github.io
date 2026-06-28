@@ -312,6 +312,8 @@ function buildPublicationLinks(fields = {}) {
     doi: fields.doi ? `https://doi.org/${fields.doi.replace(/^https?:\/\/doi.org\//, "")}` : undefined,
     arxiv: fields.arxiv || normalizeArxiv(fields),
     code: fields.code || undefined,
+    video: fields.video || undefined,
+    website: fields.website || fields.url || undefined,
   }
 
   return Object.fromEntries(Object.entries(links).filter(([, value]) => Boolean(value)))
@@ -486,6 +488,8 @@ function generatePublications() {
   doi?: string
   arxiv?: string
   code?: string
+  video?: string
+  website?: string
 }
 
 export interface Publication {
@@ -544,6 +548,8 @@ export const publications: Publication[] = []
   doi?: string
   arxiv?: string
   code?: string
+  video?: string
+  website?: string
 }
 
 export interface Publication {

@@ -14,6 +14,8 @@ const linkLabels: Record<string, string> = {
   doi: "DOI",
   arxiv: "arXiv",
   code: "Code",
+  video: "Video",
+  website: "Website",
 }
 
 function groupPublicationsByYear() {
