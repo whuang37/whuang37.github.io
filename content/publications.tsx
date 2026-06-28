@@ -2,6 +2,8 @@ export interface PublicationLinks {
   doi?: string
   arxiv?: string
   code?: string
+  video?: string
+  website?: string
 }
 
 export interface Publication {
@@ -25,7 +27,9 @@ export const publications: Publication[] = [
     "links": {
       "doi": "https://doi.org/10.1145/3772318.3790493",
       "arxiv": "https://arxiv.org/abs/2601.15516",
-      "code": "https://github.com/hilab-open-source/deltadorsal"
+      "code": "https://github.com/hilab-open-source/deltadorsal",
+      "video": "https://www.youtube.com/watch?v=JCXHf3rGmwQ",
+      "website": "https://hilab-open-source.github.io/deltadorsal/"
     },
     "hasPdf": true,
     "pdfPath": "/content/pdfs/publications/deltadorsal.pdf"
@@ -52,7 +56,9 @@ export const publications: Publication[] = [
     "links": {
       "doi": "https://doi.org/10.1145/3746059.3747624",
       "arxiv": "https://arxiv.org/abs/2507.23190",
-      "code": "https://github.com/hilab-open-source/accessibility-scout"
+      "code": "https://github.com/hilab-open-source/accessibility-scout",
+      "video": "https://youtu.be/prrUQ9Kjl-Q",
+      "website": "https://hilab-open-source.github.io/accessibility-scout/"
     },
     "hasPdf": true,
     "pdfPath": "/content/pdfs/publications/accessibility-scout.pdf"
@@ -66,7 +72,9 @@ export const publications: Publication[] = [
     "links": {
       "doi": "https://doi.org/10.1145/3613904.3642555",
       "arxiv": "https://arxiv.org/abs/2404.17063",
-      "code": "https://github.com/hilab-open-source/wheelpose"
+      "code": "https://github.com/hilab-open-source/wheelpose",
+      "video": "https://youtu.be/KWVG5bVYwd4?si=muJQLxq3d26das-3",
+      "website": "https://hilab-open-source.github.io/wheelpose/"
     },
     "hasPdf": true,
     "pdfPath": "/content/pdfs/publications/wheelpose.pdf"
