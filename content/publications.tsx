@@ -19,6 +19,20 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "slug": "alteratlas",
+    "title": "AlterAtlas: Shifting Travel Planning from AI Generation to Validation via Persona-Driven Simulations",
+    "authors": "William Huang, Ruofei Du, Yang Zhang",
+    "proceeding": "arXiv preprint",
+    "year": 2026,
+    "links": {
+      "doi": "https://doi.org/10.48550/arXiv.2607.16565",
+      "arxiv": "https://arxiv.org/abs/2607.16565",
+      "code": "https://github.com/hilab-open-source/alteratlas"
+    },
+    "hasPdf": true,
+    "pdfPath": "/content/pdfs/publications/alteratlas.pdf"
+  },
+  {
     "slug": "deltadorsal",
     "title": "DeltaDorsal: Enhancing Hand Pose Estimation with Dorsal Features in Egocentric Views",
     "authors": "William Huang, Siyou Pei, Leyi Zou, Eric J. Gonzalez, Ishan Chatterjee, Yang Zhang",
