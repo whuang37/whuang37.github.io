@@ -4,16 +4,17 @@ interface PhotographyReaderProps {
   slug: string
 }
 
-const imageModules = import.meta.glob("@/content/images/**/*.{png,jpg,jpeg,webp,gif,svg,JPG,JPEG,WEBP,GIF,SVG}", {
+const imageModules = import.meta.glob("@/.tmp/optimized-images/**/*.webp", {
   eager: true,
   import: "default",
 }) as Record<string, string>
 
 function resolveContentImageSources(html: string): string {
   return html.replace(/src="(\/content\/images\/[^"]+)"/g, (_full, sourcePath: string) => {
-    const targetSuffix = sourcePath.slice(1)
+    const targetSuffix = sourcePath.replace(/^\/content\/images\//, "/.tmp/optimized-images/").replace(/\.[^.]+$/, ".webp")
     const matched = Object.entries(imageModules).find(([modulePath]) => modulePath.endsWith(targetSuffix))
-    return `src="${matched?.[1] ?? sourcePath}"`
+    if (!matched) throw new Error(`Optimized image not found: ${sourcePath}`)
+    return `src="${matched[1]}"`
   })
 }
 

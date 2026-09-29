@@ -4,13 +4,13 @@ type Tab = "about" | "publications" | "photography"
 
 interface SidebarProps {
   activeTab: Tab
-  onTabChange: (tab: Tab) => void
   width: number
   mobileMenuOpen: boolean
 }
 
-export function Sidebar({ activeTab, onTabChange, width, mobileMenuOpen }: SidebarProps) {
+export function Sidebar({ activeTab, width, mobileMenuOpen }: SidebarProps) {
   const tabs: Tab[] = ["about", "publications", "photography"]
+  const paths: Record<Tab, string> = { about: "/", publications: "/publications/", photography: "/photography/" }
 
   return (
     <aside
@@ -37,16 +37,17 @@ export function Sidebar({ activeTab, onTabChange, width, mobileMenuOpen }: Sideb
       </div>
       <nav className="flex flex-col gap-2 p-8 pt-54">
         {tabs.map((tab) => (
-          <button
+          <a
             key={tab}
-            onClick={() => onTabChange(tab)}
+            href={paths[tab]}
+            aria-current={activeTab === tab ? "page" : undefined}
             className={cn(
               "text-left py-1 transition-colors uppercase tracking-widest text-xs",
               activeTab === tab ? "text-foreground" : "text-foreground/40 hover:text-foreground/70",
             )}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
-          </button>
+          </a>
         ))}
       </nav>
 

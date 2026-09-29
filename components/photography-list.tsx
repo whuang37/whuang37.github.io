@@ -4,7 +4,6 @@ import { ListPaneLayout } from "./list-pane-layout"
 
 interface PhotographyListProps {
   selectedPhoto: string | null
-  onSelectPhoto: (slug: string) => void
   width: number
   isDragging: boolean
   onMouseDown: (e: React.MouseEvent) => void
@@ -21,7 +20,7 @@ function sortPhotosByDate() {
   return [...photography].sort((a, b) => parseNoteDate(b.date) - parseNoteDate(a.date))
 }
 
-export function PhotographyList({ selectedPhoto, onSelectPhoto, width, isDragging, onMouseDown }: PhotographyListProps) {
+export function PhotographyList({ selectedPhoto, width, isDragging, onMouseDown }: PhotographyListProps) {
   const sortedPhotos = sortPhotosByDate()
   return (
     <ListPaneLayout
@@ -39,8 +38,8 @@ export function PhotographyList({ selectedPhoto, onSelectPhoto, width, isDraggin
       <ol className="space-y-8 pb-2 pr-2">
         {sortedPhotos.map((photo) => (
           <li key={photo.slug} className="relative min-w-0 text-foreground">
-            <button
-              onClick={() => onSelectPhoto(photo.slug)}
+            <a
+              href={`/photography/${photo.slug}/`}
               className="group relative w-full min-w-0 cursor-pointer space-y-1 py-1 text-left transition-colors"
             >
               <span
@@ -63,7 +62,7 @@ export function PhotographyList({ selectedPhoto, onSelectPhoto, width, isDraggin
                 <span className="shrink-0 text-sm text-muted-foreground transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
               </div>
               <p className="break-words font-mono text-xs uppercase tracking-widest text-muted-foreground transition-opacity [overflow-wrap:anywhere] group-hover:opacity-70">{photo.date}</p>
-            </button>
+            </a>
           </li>
         ))}
       </ol>

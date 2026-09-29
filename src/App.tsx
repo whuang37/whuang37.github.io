@@ -8,14 +8,32 @@ import { PublicationsList } from "@/components/publications-list"
 import { PhotographyReader } from "@/components/photography-reader"
 import { PublicationReader } from "@/components/publication-reader"
 import { ContentPanel } from "@/components/content-panel"
+import { photography } from "@/content/photography"
+import { publications } from "@/content/publications"
 
 type Tab = "about" | "publications" | "photography"
 const SIDEBAR_WIDTH = 172
 
+function getRoute(): { tab: Tab; slug: string | null } | null {
+  const parts = window.location.pathname.split("/").filter(Boolean)
+
+  if (parts.length === 0) return { tab: "about", slug: null }
+  if (parts.length > 2 || (parts[0] !== "publications" && parts[0] !== "photography")) return null
+
+  const tab = parts[0]
+  const slug = parts[1] ?? null
+  if (slug && !(tab === "publications" ? publications : photography).some((item) => item.slug === slug)) {
+    return null
+  }
+
+  return { tab, slug }
+}
+
 export default function PersonalWebsite() {
-  const [activeTab, setActiveTab] = useState<Tab>("about")
-  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null)
-  const [selectedPublication, setSelectedPublication] = useState<string | null>(null)
+  const route = getRoute()
+  const activeTab = route?.tab ?? "about"
+  const selectedPhoto = route?.tab === "photography" ? route.slug : null
+  const selectedPublication = route?.tab === "publications" ? route.slug : null
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const photographyList = useResizable({
@@ -31,13 +49,6 @@ export default function PersonalWebsite() {
     offsetX: SIDEBAR_WIDTH,
   })
 
-  const handleTabChange = (tab: Tab) => {
-    setActiveTab(tab)
-    setMobileMenuOpen(false)
-    setSelectedPhoto(null)
-    setSelectedPublication(null)
-  }
-
   return (
     <div className="flex min-h-screen overflow-x-clip md:h-screen md:overflow-hidden">
       <button
@@ -50,22 +61,25 @@ export default function PersonalWebsite() {
 
       <Sidebar
         activeTab={activeTab}
-        onTabChange={handleTabChange}
         width={SIDEBAR_WIDTH}
         mobileMenuOpen={mobileMenuOpen}
       />
 
-      {activeTab === "photography" ? (
+      {!route ? (
+        <main className="min-w-0 flex-1 p-8 pt-28 md:p-16">
+          <h1 className="text-4xl font-serif">Page not found</h1>
+          <a href="/" className="mt-6 inline-block underline">Return home</a>
+        </main>
+      ) : activeTab === "photography" ? (
         <>
           <PhotographyList
             selectedPhoto={selectedPhoto}
-            onSelectPhoto={setSelectedPhoto}
             width={photographyList.width}
             isDragging={photographyList.isDragging}
             onMouseDown={photographyList.handleMouseDown}
           />
           {selectedPhoto && (
-            <ContentPanel onClose={() => setSelectedPhoto(null)}>
+            <ContentPanel closeHref="/photography/">
               <PhotographyReader slug={selectedPhoto} />
             </ContentPanel>
           )}
@@ -74,13 +88,12 @@ export default function PersonalWebsite() {
         <>
           <PublicationsList
             selectedPublication={selectedPublication}
-            onSelectPublication={setSelectedPublication}
             width={publicationList.width}
             isDragging={publicationList.isDragging}
             onMouseDown={publicationList.handleMouseDown}
           />
           {selectedPublication && (
-            <ContentPanel onClose={() => setSelectedPublication(null)}>
+            <ContentPanel closeHref="/publications/" wide>
               <PublicationReader slug={selectedPublication} />
             </ContentPanel>
           )}

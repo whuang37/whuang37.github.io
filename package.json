@@ -4,8 +4,10 @@
   "private": false,
   "scripts": {
     "generate-content": "node scripts/generate-content.mjs",
-    "build": "node scripts/generate-content.mjs && vite build",
-    "dev": "node scripts/generate-content.mjs && vite",
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "optimize-pdfs": "node scripts/optimize-pdfs.mjs",
+    "build": "node scripts/generate-content.mjs && node scripts/optimize-images.mjs && node scripts/optimize-pdfs.mjs && vite build && node scripts/generate-route-pages.mjs",
+    "dev": "node scripts/generate-content.mjs && node scripts/optimize-images.mjs && node scripts/optimize-pdfs.mjs && vite",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -68,6 +70,7 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.0",
     "postcss": "^8.5",
+    "sharp": "0.34.4",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
     "typescript": "^5",

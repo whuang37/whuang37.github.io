@@ -123,6 +123,10 @@ This template is ready to deploy to:
 - **Netlify**: Drag and drop your build folder
 - **Any static host**: Run `npm run build` and deploy the `dist` folder
 
+The build creates direct-link pages for `/publications/`, `/photography/`, and each entry at `/publications/<slug>/` or `/photography/<slug>/`. Deploy the full `dist` folder so these URLs also work when opened or refreshed directly.
+
+The build converts images in `content/images` to WebP files up to 2000 pixels wide or high. Gallery images load as visitors scroll. It also uses Ghostscript to make smaller publication PDFs with the `/prepress` preset. Source images and PDFs stay unchanged. Install Ghostscript before running the build or development server locally.
+
 ## Tech Stack
 
 - **Framework**: Vite + React 19

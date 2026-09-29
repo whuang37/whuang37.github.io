@@ -1,6 +1,5 @@
 import { Footer } from "./footer"
-import headshot from "@/content/images/headshot.png"
-import cvPdf from "@/content/pdfs/CV_WilliamHuang.pdf"
+import headshot from "@/.tmp/optimized-images/headshot.webp"
 
 export function AboutSection() {
   return (
@@ -10,6 +9,9 @@ export function AboutSection() {
         <img
           src={headshot}
           alt="Portrait headshot"
+          width="128"
+          height="128"
+          decoding="async"
           className="w-32 h-32 rounded-full object-cover border border-border"
         />
       </div>
@@ -119,7 +121,7 @@ export function AboutSection() {
           Email
         </a>
         <a
-          href={cvPdf}
+          href="/CV_WilliamHuang.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid [overflow-wrap:anywhere]"

@@ -4,7 +4,6 @@ import { ListPaneLayout } from "./list-pane-layout"
 
 interface PublicationsListProps {
   selectedPublication: string | null
-  onSelectPublication: (slug: string) => void
   width: number
   isDragging: boolean
   onMouseDown: (e: React.MouseEvent) => void
@@ -37,7 +36,6 @@ function groupPublicationsByYear() {
 
 export function PublicationsList({
   selectedPublication,
-  onSelectPublication,
   width,
   isDragging,
   onMouseDown,
@@ -63,8 +61,8 @@ export function PublicationsList({
 
                 return (
                   <li key={publication.slug} className="relative min-w-0 text-foreground">
-                    <button
-                      onClick={() => onSelectPublication(publication.slug)}
+                    <a
+                      href={`/publications/${publication.slug}/`}
                       className="group relative w-full min-w-0 cursor-pointer space-y-1 py-1 text-left transition-colors"
                     >
                       <span
@@ -94,7 +92,7 @@ export function PublicationsList({
                       <p className="break-words text-xs italic text-muted-foreground transition-opacity [overflow-wrap:anywhere] group-hover:opacity-70">
                         {publication.proceeding || "Proceeding not specified"}
                       </p>
-                    </button>
+                    </a>
                     {links.length > 0 && (
                       <div className="flex min-w-0 flex-wrap items-center gap-3 pt-1 font-mono text-xs uppercase tracking-widest">
                         {links.map(([name, url]) => (

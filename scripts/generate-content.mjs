@@ -49,7 +49,7 @@ function markdownToHtml(markdown) {
       const escapedAlt = escapeHtml(alt || "Image")
       processedText = processedText.replace(
         `___IMAGE_${index}___`,
-        `<figure><img src="${url}" alt="${escapedAlt}" /><figcaption>${escapedAlt}</figcaption></figure>`,
+        `<figure><img src="${url}" alt="${escapedAlt}" loading="lazy" decoding="async" /><figcaption>${escapedAlt}</figcaption></figure>`,
       )
     })
 
@@ -405,6 +405,12 @@ function generatePhotography() {
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const { data, content } = matter(fileContents)
 
+    for (const [, imagePath] of content.matchAll(/!\[[^\]]*\]\((\/content\/images\/[^)]+)\)/g)) {
+      if (!fs.existsSync(path.join(rootDir, imagePath.slice(1)))) {
+        throw new Error(`Missing image in ${filename}: ${imagePath}`)
+      }
+    }
+
     return {
       slug,
       title: data.title || slug,
@@ -427,6 +433,7 @@ export const photography: Photo[] = ${JSON.stringify(photos, null, 2)}
 
   fs.writeFileSync(path.join(rootDir, "content/photography.tsx"), output)
   console.log(`✓ Generated content for ${photos.length} photography entries`)
+  return photos.map(({ slug }) => slug)
 }
 
 // Generate books content
@@ -507,7 +514,7 @@ export const publications: Publication[] = []
 `
     fs.writeFileSync(path.join(rootDir, "content/publications.tsx"), output)
     console.log("✓ Generated content for 0 publications")
-    return
+    return []
   }
 
   const bibRaw = fs.readFileSync(bibPath, "utf8")
@@ -568,9 +575,19 @@ export const publications: Publication[] = ${JSON.stringify(publications, null, 
 
   fs.writeFileSync(path.join(rootDir, "content/publications.tsx"), output)
   console.log(`✓ Generated content for ${publications.length} publications`)
+  return publications.map(({ slug }) => slug)
 }
 
 // Run generators
 generateNotes()
-generatePhotography()
-generatePublications()
+const photoSlugs = generatePhotography()
+const publicationSlugs = generatePublications()
+const routePaths = [
+  "photography",
+  "publications",
+  ...photoSlugs.map((slug) => `photography/${slug}`),
+  ...publicationSlugs.map((slug) => `publications/${slug}`),
+]
+const tempDir = path.join(rootDir, ".tmp")
+fs.mkdirSync(tempDir, { recursive: true })
+fs.writeFileSync(path.join(tempDir, "route-paths.json"), JSON.stringify(routePaths))

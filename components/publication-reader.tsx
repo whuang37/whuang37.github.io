@@ -4,13 +4,13 @@ interface PublicationReaderProps {
   slug: string
 }
 
-const pdfModules = import.meta.glob("@/content/pdfs/publications/*.pdf", {
+const pdfModules = import.meta.glob("@/.tmp/optimized-pdfs/*.pdf", {
   eager: true,
   import: "default",
 }) as Record<string, string>
 
 function getPdfUrl(pdfPath: string): string | null {
-  const suffix = pdfPath
+  const suffix = pdfPath.replace("/content/pdfs/publications/", "/.tmp/optimized-pdfs/")
   const match = Object.entries(pdfModules).find(([modulePath]) => modulePath.endsWith(suffix))
   return match?.[1] ?? null
 }
