@@ -93,7 +93,7 @@ export default function PersonalWebsite() {
             onMouseDown={publicationList.handleMouseDown}
           />
           {selectedPublication && (
-            <ContentPanel closeHref="/publications/" wide>
+            <ContentPanel closeHref="/publications/">
               <PublicationReader slug={selectedPublication} />
             </ContentPanel>
           )}
