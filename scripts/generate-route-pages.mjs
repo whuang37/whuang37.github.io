@@ -23,6 +23,30 @@ function escapeHtml(value) {
   return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
 }
 
+function withStaticContent(html, content) {
+  const placeholder = '<div id="root"></div>'
+  if (!html.includes(placeholder)) throw new Error("Root element not found in built HTML")
+  return html.replace(placeholder, `<div id="root">${content}</div>`)
+}
+
+function staticContent(route, title, description) {
+  const nav = '<nav aria-label="Site"><a href="/">About</a> · <a href="/publications/">Publications</a> · <a href="/photography/">Photography</a></nav>'
+  if (!route) {
+    return `<main class="mx-auto max-w-3xl px-6 py-16"><h1>William Huang</h1><p>${description}</p><p>PhD candidate in Electrical and Computer Engineering at UCLA, working on human-computer interaction, AI, sensing, and accessibility.</p>${nav}<p><a href="/CV_WilliamHuang.pdf">CV</a> · <a href="https://www.linkedin.com/in/whuang37/">LinkedIn</a> · <a href="https://orcid.org/0000-0001-7651-2190">ORCID</a></p></main>`
+  }
+
+  const [section, slug] = route.split("/")
+  const items = section === "publications" ? [...publications.values()] : [...photography.values()]
+  const list = !slug
+    ? `<ul>${items.map((item) => `<li><a href="/${section}/${item.slug}/">${escapeHtml(item.title)}</a></li>`).join("")}</ul>`
+    : ""
+  const item = slug && (section === "publications" ? publications : photography).get(slug)
+  const details = item && "authors" in item
+    ? `<p>${escapeHtml(item.authors)}</p><p>${escapeHtml(item.proceeding)}${item.year ? `, ${item.year}` : ""}</p>${Object.entries(item.links).filter(([, url]) => url).map(([label, url]) => `<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`).join(" · ")}`
+    : item ? `<p>${escapeHtml(item.date)}</p>` : ""
+  return `<main class="mx-auto max-w-3xl px-6 py-16">${nav}<article><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p>${details}${list}</article></main>`
+}
+
 function metadata(route) {
   const [section, slug] = route.split("/")
   if (section === "publications" && slug) {
@@ -61,8 +85,12 @@ for (const route of routes) {
     .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${escapeHtml(title)}" />`)
     .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${escapeHtml(description)}" />`)
     .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${url}" />`)
-  fs.writeFileSync(path.join(directory, "index.html"), pageHtml)
+  fs.writeFileSync(path.join(directory, "index.html"), withStaticContent(pageHtml, staticContent(route, title, description)))
 }
+
+const homeDescription = homeHtml.match(/<meta name="description" content="([^"]*)" \/>/)?.[1]
+if (!homeDescription) throw new Error("Home description not found in built HTML")
+fs.writeFileSync(indexHtml, withStaticContent(homeHtml, staticContent("", "", homeDescription)))
 
 const urls = ["/", ...routes.map((route) => `/${route}/`)]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${siteUrl}${url}</loc></url>`).join("\n")}\n</urlset>\n`
