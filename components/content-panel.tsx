@@ -1,24 +1,23 @@
-import { X } from "lucide-react"
 import type React from "react"
+import { ScrollArea } from "./scroll-area"
 
 interface ContentPanelProps {
-  closeHref: string
+  document?: boolean
   children: React.ReactNode
+  menuControl?: React.ReactNode
 }
 
-export function ContentPanel({ closeHref, children }: ContentPanelProps) {
+export function ContentPanel({ document = false, children, menuControl }: ContentPanelProps) {
   return (
-    <main className="min-w-0 flex-1 p-8 md:p-16 overflow-y-auto max-md:pt-20 relative">
-      <div className="absolute top-4 right-4">
-        <a
-          href={closeHref}
-          className="p-2 hover:bg-muted rounded-lg transition-colors"
-          aria-label="Close reading panel"
-        >
-          <X className="w-4 h-4 text-muted-foreground" />
-        </a>
-      </div>
-      {children}
+    <main className="relative flex h-dvh min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
+      {document ? children : (
+        <>
+          <header className="flex h-14 shrink-0 items-center px-2 md:hidden">{menuControl}</header>
+          <ScrollArea className="min-h-0 flex-1" label="Photography">
+            <div className="p-8 max-md:pt-6 md:p-16">{children}</div>
+          </ScrollArea>
+        </>
+      )}
     </main>
   )
 }

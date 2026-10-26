@@ -586,6 +586,7 @@ generateNotes()
 const photoSlugs = generatePhotography()
 const publicationSlugs = generatePublications()
 const routePaths = [
+  "cv",
   "photography",
   "publications",
   ...photoSlugs.map((slug) => `photography/${slug}`),

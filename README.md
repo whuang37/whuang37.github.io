@@ -4,7 +4,7 @@ Personal website template with collapsible list drawers & MDX content management
 
 ## Features
 
-- **List Drawers**: Open or close publication and photography lists while reading
+- **List Drawers**: Use the sidebar to browse publications and photography in a drawer above the current page
 - **Decorative Ribbon**: Book-inspired ribbon bookmark detail
 - **Mobile Responsive**: Seamless hamburger menu for mobile devices
 - **MDX Content System**: Write notes and book reviews in Markdown with frontmatter metadata
@@ -123,9 +123,11 @@ This template is ready to deploy to:
 - **Netlify**: Drag and drop your build folder
 - **Any static host**: Run `npm run build` and deploy the `dist` folder
 
-The build creates direct-link pages for `/publications/`, `/photography/`, and each entry at `/publications/<slug>/` or `/photography/<slug>/`. Deploy the full `dist` folder so these URLs also work when opened or refreshed directly.
+The build creates direct-link pages for `/cv/`, `/publications/`, `/photography/`, and each entry at `/publications/<slug>/` or `/photography/<slug>/`. Deploy the full `dist` folder so these URLs also work when opened or refreshed directly.
 
 The build converts images in `content/images` to WebP files up to 2000 pixels wide or high. Gallery images load as visitors scroll. It also uses Ghostscript to make smaller publication PDFs with the `/prepress` preset. Source images and PDFs stay unchanged. Install Ghostscript before running the build or development server locally.
+
+Desktop and mobile render PDFs with PDF.js in a continuous scroll, with zoom and a download button. PDF downloads use readable filenames without build hashes.
 
 ## Tech Stack
 
@@ -133,7 +135,7 @@ The build converts images in `content/images` to WebP files up to 2000 pixels wi
 - **Styling**: Tailwind CSS 4
 - **UI Components**: Radix UI primitives
 - **Content**: MDX with gray-matter
-- **Layout**: Flex panels with collapsible list drawers
+- **Layout**: Full-width pages with overlay list drawers
 - **TypeScript**: Full type safety
 
 ## License

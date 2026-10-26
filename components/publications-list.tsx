@@ -4,7 +4,6 @@ import { ListPaneLayout } from "./list-pane-layout"
 
 interface PublicationsListProps {
   selectedPublication: string | null
-  open: boolean
 }
 
 const linkLabels: Record<string, string> = {
@@ -35,14 +34,11 @@ function groupPublicationsByYear() {
 
 export function PublicationsList({
   selectedPublication,
-  open,
 }: PublicationsListProps) {
   const groupedPublications = groupPublicationsByYear()
 
   return (
     <ListPaneLayout
-      selectedItem={Boolean(selectedPublication)}
-      open={open}
       header={<h1 className="text-4xl font-serif">Publications</h1>}
     >
       <div className="space-y-8 pb-2 pr-2">
@@ -58,7 +54,7 @@ export function PublicationsList({
                   <li key={publication.slug} className="relative min-w-0 text-foreground">
                     <a
                       href={`/publications/${publication.slug}/`}
-                      className="group relative w-full min-w-0 cursor-pointer space-y-1 py-1 text-left transition-colors"
+                      className="group relative block w-full min-w-0 cursor-pointer space-y-1 py-1 text-left transition-colors"
                     >
                       <span
                         className={cn(

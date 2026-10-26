@@ -1,7 +1,10 @@
 import { publications } from "@/content/publications"
+import { PdfReader } from "./pdf-reader"
+import type { ReactNode } from "react"
 
 interface PublicationReaderProps {
   slug: string
+  menuControl: ReactNode
 }
 
 const pdfModules = import.meta.glob("@/.tmp/optimized-pdfs/*.pdf", {
@@ -15,7 +18,7 @@ function getPdfUrl(pdfPath: string): string | null {
   return match?.[1] ?? null
 }
 
-export function PublicationReader({ slug }: PublicationReaderProps) {
+export function PublicationReader({ slug, menuControl }: PublicationReaderProps) {
   const publication = publications.find((item) => item.slug === slug)
   if (!publication) return null
 
@@ -25,11 +28,5 @@ export function PublicationReader({ slug }: PublicationReaderProps) {
     return <p className="text-muted-foreground">PDF not found for this publication.</p>
   }
 
-  const pdfViewerUrl = `${pdfUrl}#pagemode=none&navpanes=0&toolbar=1`
-
-  return (
-    <article className="h-full">
-      <iframe src={pdfViewerUrl} title={`${publication.title} PDF`} className="w-full h-full border-0" />
-    </article>
-  )
+  return <PdfReader src={pdfUrl} title={publication.title} filename={`${publication.slug}.pdf`} section="Publications" menuControl={menuControl} />
 }

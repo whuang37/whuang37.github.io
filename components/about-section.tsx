@@ -73,6 +73,15 @@ export function AboutSection() {
         <p className="text-foreground break-words">
           Previously, I worked at{" "}
           <a
+            href="https://arvr.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid [overflow-wrap:anywhere]"
+          >
+            Google XR Labs
+          </a>{" "}
+          as a Student Researcher,{" "}
+          <a
             href="https://www.pnnl.gov/"
             target="_blank"
             rel="noopener noreferrer"
@@ -119,14 +128,6 @@ export function AboutSection() {
           className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid [overflow-wrap:anywhere]"
         >
           Email
-        </a>
-        <a
-          href="/CV_WilliamHuang.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid [overflow-wrap:anywhere]"
-        >
-          CV
         </a>
         <a
           href="https://github.com/whuang37"

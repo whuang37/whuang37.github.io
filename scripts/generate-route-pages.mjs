@@ -30,9 +30,13 @@ function withStaticContent(html, content) {
 }
 
 function staticContent(route, title, description) {
-  const nav = '<nav aria-label="Site"><a href="/">About</a> · <a href="/publications/">Publications</a> · <a href="/photography/">Photography</a></nav>'
+  const nav = '<nav aria-label="Site"><a href="/">About</a> · <a href="/cv/">Curriculum Vitae</a> · <a href="/publications/">Publications</a> · <a href="/photography/">Photography</a></nav>'
   if (!route) {
-    return `<main class="mx-auto max-w-3xl px-6 py-16"><h1>William Huang</h1><p>${description}</p><p>PhD candidate in Electrical and Computer Engineering at UCLA, working on human-computer interaction, AI, sensing, and accessibility.</p>${nav}<p><a href="/CV_WilliamHuang.pdf">CV</a> · <a href="https://www.linkedin.com/in/whuang37/">LinkedIn</a> · <a href="https://orcid.org/0000-0001-7651-2190">ORCID</a></p></main>`
+    return `<main class="mx-auto max-w-3xl px-6 py-16"><h1>William Huang</h1><p>${description}</p><p>PhD candidate in Electrical and Computer Engineering at UCLA, working on human-computer interaction, AI, sensing, and accessibility.</p>${nav}<p><a href="https://www.linkedin.com/in/whuang37/">LinkedIn</a> · <a href="https://orcid.org/0000-0001-7651-2190">ORCID</a></p></main>`
+  }
+
+  if (route === "cv") {
+    return `<main class="h-screen px-6 py-16">${nav}<h1>Curriculum Vitae</h1><iframe src="/CV_WilliamHuang.pdf#pagemode=none&amp;navpanes=0&amp;toolbar=1" title="William Huang — Curriculum Vitae" class="h-full w-full border-0"></iframe></main>`
   }
 
   const [section, slug] = route.split("/")
@@ -48,6 +52,12 @@ function staticContent(route, title, description) {
 }
 
 function metadata(route) {
+  if (route === "cv") {
+    return {
+      title: "Curriculum Vitae | William Huang",
+      description: "Curriculum vitae of William Huang, a UCLA researcher in HCI, AI, sensing, and accessibility.",
+    }
+  }
   const [section, slug] = route.split("/")
   if (section === "publications" && slug) {
     const publication = publications.get(slug)
@@ -68,7 +78,7 @@ function metadata(route) {
 }
 
 for (const route of routes) {
-  if (!/^(photography|publications)(\/[a-z0-9-]+)?$/.test(route)) {
+  if (!/^(cv|(photography|publications)(\/[a-z0-9-]+)?)$/.test(route)) {
     throw new Error(`Invalid route path: ${route}`)
   }
 

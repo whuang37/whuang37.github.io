@@ -4,7 +4,6 @@ import { ListPaneLayout } from "./list-pane-layout"
 
 interface PhotographyListProps {
   selectedPhoto: string | null
-  open: boolean
 }
 
 // Helper function to parse date string (MM-DD-YYYY) and return comparable timestamp
@@ -18,12 +17,10 @@ function sortPhotosByDate() {
   return [...photography].sort((a, b) => parseNoteDate(b.date) - parseNoteDate(a.date))
 }
 
-export function PhotographyList({ selectedPhoto, open }: PhotographyListProps) {
+export function PhotographyList({ selectedPhoto }: PhotographyListProps) {
   const sortedPhotos = sortPhotosByDate()
   return (
     <ListPaneLayout
-      selectedItem={Boolean(selectedPhoto)}
-      open={open}
       header={
         <>
           <h1 className="text-4xl font-serif">Photography</h1>
@@ -36,7 +33,7 @@ export function PhotographyList({ selectedPhoto, open }: PhotographyListProps) {
           <li key={photo.slug} className="relative min-w-0 text-foreground">
             <a
               href={`/photography/${photo.slug}/`}
-              className="group relative w-full min-w-0 cursor-pointer space-y-1 py-1 text-left transition-colors"
+              className="group relative block w-full min-w-0 cursor-pointer space-y-1 py-1 text-left transition-colors"
             >
               <span
                 className={cn(
