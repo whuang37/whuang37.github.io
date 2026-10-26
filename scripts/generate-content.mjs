@@ -311,6 +311,7 @@ function buildPublicationLinks(fields = {}) {
   const links = {
     doi: fields.doi ? `https://doi.org/${fields.doi.replace(/^https?:\/\/doi.org\//, "")}` : undefined,
     arxiv: fields.arxiv || normalizeArxiv(fields),
+    biorxiv: fields.biorxiv || undefined,
     code: fields.code || undefined,
     video: fields.video || undefined,
     website: fields.website || fields.url || undefined,
@@ -494,6 +495,7 @@ function generatePublications() {
     const output = `export interface PublicationLinks {
   doi?: string
   arxiv?: string
+  biorxiv?: string
   code?: string
   video?: string
   website?: string
@@ -554,6 +556,7 @@ export const publications: Publication[] = []
   const output = `export interface PublicationLinks {
   doi?: string
   arxiv?: string
+  biorxiv?: string
   code?: string
   video?: string
   website?: string

@@ -1,6 +1,7 @@
 export interface PublicationLinks {
   doi?: string
   arxiv?: string
+  biorxiv?: string
   code?: string
   video?: string
   website?: string
@@ -19,13 +20,26 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "slug": "genxr-bench",
+    "title": "GenXR-Bench: Benchmarking Coding Agents for Interactive XR Development",
+    "authors": "William Huang, David Li, Xiang 'Anthony' Chen, Xun Qian, Nels Numan, Zhongyi Zhou, Hyunsung Cho, Salman Muin Kayser Chishti, Ding Xia, Xincheng Huang, Jiahao Ren, Faraz Faruqi, Tianyu Xu, Yang Zhang, David Kim, Ruofei Du",
+    "proceeding": "arXiv preprint",
+    "year": 2026,
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2610.29014",
+      "code": "https://github.com/whuang37/genxr-bench",
+      "website": "https://whuang37.github.io/genxr-bench/"
+    },
+    "hasPdf": true,
+    "pdfPath": "/content/pdfs/publications/genxr-bench.pdf"
+  },
+  {
     "slug": "alteratlas",
     "title": "AlterAtlas: Shifting Travel Planning from AI Generation to Validation via Persona-Driven Simulations",
     "authors": "William Huang, Ruofei Du, Yang Zhang",
     "proceeding": "arXiv preprint",
     "year": 2026,
     "links": {
-      "doi": "https://doi.org/10.48550/arXiv.2607.16565",
       "arxiv": "https://arxiv.org/abs/2607.16565",
       "code": "https://github.com/hilab-open-source/alteratlas"
     },
@@ -49,13 +63,24 @@ export const publications: Publication[] = [
     "pdfPath": "/content/pdfs/publications/deltadorsal.pdf"
   },
   {
+    "slug": "choroid-plexus",
+    "title": "Inducible Lipid Storage and Steatosis in the Human Choroid Plexus Associated with Age and Adiposity",
+    "authors": "N. Victoria Espericueta, Michael J. Neel, Yao Wang, Todd J. Soo, Parastou Porahang, Frances A. Goyokpin, Ryan S. Salehi, Sara Khan, Jasmine Lee, Nicolas B. Maramica, Guillermo Flores, Aditi Kulkarni, Sahil S. Plaha, Sam Ghahremani, William Huang, Quinton Smith, Peter Chang, Brett A. Johnson, Edwin S. Monuki",
+    "proceeding": "bioRxiv preprint",
+    "year": 2026,
+    "links": {
+      "biorxiv": "https://www.biorxiv.org/content/10.64898/2026.05.21.725559v1"
+    },
+    "hasPdf": true,
+    "pdfPath": "/content/pdfs/publications/choroid-plexus.pdf"
+  },
+  {
     "slug": "does-cafe",
     "title": "\"Does the Cafe Entrance Look Accessible? Where Is the Door?\" Towards Geospatial AI Agents for Visual Inquiries",
     "authors": "Jon E. Froehlich, Jared Hwang, Zeyu Wang, John S. O'Meara, Xia Su, William Huang, Yang Zhang, Alex Fiannaca, Philip Nelson, Shaun Kane",
     "proceeding": "ICCV CV4A11y Workshop 2025",
     "year": 2025,
     "links": {
-      "doi": "https://doi.org/10.48550/arXiv.2508.15752",
       "arxiv": "https://arxiv.org/abs/2508.15752"
     },
     "hasPdf": true,

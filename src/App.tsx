@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import type { MouseEvent } from "react"
 import { Menu, X } from "lucide-react"
-import { useResizable } from "@/hooks/use-resizable"
 import { Sidebar } from "@/components/sidebar"
 import { AboutSection } from "@/components/about-section"
 import { PhotographyList } from "@/components/photography-list"
@@ -9,6 +8,7 @@ import { PublicationsList } from "@/components/publications-list"
 import { PhotographyReader } from "@/components/photography-reader"
 import { PublicationReader } from "@/components/publication-reader"
 import { ContentPanel } from "@/components/content-panel"
+import { DrawerToggle } from "@/components/drawer-toggle"
 import { photography } from "@/content/photography"
 import { publications } from "@/content/publications"
 
@@ -37,6 +37,7 @@ export default function PersonalWebsite() {
   const selectedPhoto = route?.tab === "photography" ? route.slug : null
   const selectedPublication = route?.tab === "publications" ? route.slug : null
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [listOpen, setListOpen] = useState(() => window.matchMedia("(min-width: 768px)").matches)
 
   useEffect(() => {
     const onPopState = () => setPathname(window.location.pathname)
@@ -77,20 +78,8 @@ export default function PersonalWebsite() {
       setPathname(url.pathname)
     }
     setMobileMenuOpen(false)
+    if (!window.matchMedia("(min-width: 768px)").matches) setListOpen(false)
   }
-
-  const photographyList = useResizable({
-    initialWidth: 600,
-    minWidth: 200,
-    maxWidth: 600,
-    offsetX: SIDEBAR_WIDTH,
-  })
-  const publicationList = useResizable({
-    initialWidth: 600,
-    minWidth: 200,
-    maxWidth: 600,
-    offsetX: SIDEBAR_WIDTH,
-  })
 
   return (
     <div onClick={handleInternalClick} className="flex min-h-screen overflow-x-clip md:h-screen md:overflow-hidden">
@@ -117,28 +106,30 @@ export default function PersonalWebsite() {
         <>
           <PhotographyList
             selectedPhoto={selectedPhoto}
-            width={photographyList.width}
-            isDragging={photographyList.isDragging}
-            onMouseDown={photographyList.handleMouseDown}
+            open={listOpen}
           />
           {selectedPhoto && (
-            <ContentPanel key={selectedPhoto} closeHref="/photography/">
-              <PhotographyReader slug={selectedPhoto} />
-            </ContentPanel>
+            <>
+              <DrawerToggle open={listOpen} onToggle={() => setListOpen(!listOpen)} />
+              <ContentPanel key={selectedPhoto} closeHref="/photography/">
+                <PhotographyReader slug={selectedPhoto} />
+              </ContentPanel>
+            </>
           )}
         </>
       ) : activeTab === "publications" ? (
         <>
           <PublicationsList
             selectedPublication={selectedPublication}
-            width={publicationList.width}
-            isDragging={publicationList.isDragging}
-            onMouseDown={publicationList.handleMouseDown}
+            open={listOpen}
           />
           {selectedPublication && (
-            <ContentPanel key={selectedPublication} closeHref="/publications/">
-              <PublicationReader slug={selectedPublication} />
-            </ContentPanel>
+            <>
+              <DrawerToggle open={listOpen} onToggle={() => setListOpen(!listOpen)} />
+              <ContentPanel key={selectedPublication} closeHref="/publications/">
+                <PublicationReader slug={selectedPublication} />
+              </ContentPanel>
+            </>
           )}
         </>
       ) : (

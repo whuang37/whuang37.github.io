@@ -8,7 +8,7 @@ interface ContentPanelProps {
 
 export function ContentPanel({ closeHref, children }: ContentPanelProps) {
   return (
-    <main className="flex-1 p-8 md:p-16 max-w-3xl overflow-y-auto max-md:pt-20 relative">
+    <main className="min-w-0 flex-1 p-8 md:p-16 overflow-y-auto max-md:pt-20 relative">
       <div className="absolute top-4 right-4">
         <a
           href={closeHref}

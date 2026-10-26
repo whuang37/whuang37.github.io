@@ -4,9 +4,7 @@ import { ListPaneLayout } from "./list-pane-layout"
 
 interface PhotographyListProps {
   selectedPhoto: string | null
-  width: number
-  isDragging: boolean
-  onMouseDown: (e: React.MouseEvent) => void
+  open: boolean
 }
 
 // Helper function to parse date string (MM-DD-YYYY) and return comparable timestamp
@@ -20,14 +18,12 @@ function sortPhotosByDate() {
   return [...photography].sort((a, b) => parseNoteDate(b.date) - parseNoteDate(a.date))
 }
 
-export function PhotographyList({ selectedPhoto, width, isDragging, onMouseDown }: PhotographyListProps) {
+export function PhotographyList({ selectedPhoto, open }: PhotographyListProps) {
   const sortedPhotos = sortPhotosByDate()
   return (
     <ListPaneLayout
-      width={width}
       selectedItem={Boolean(selectedPhoto)}
-      isDragging={isDragging}
-      onMouseDown={onMouseDown}
+      open={open}
       header={
         <>
           <h1 className="text-4xl font-serif">Photography</h1>

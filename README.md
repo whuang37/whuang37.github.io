@@ -1,10 +1,10 @@
 # Cozy website template
 
-Personal website template with resizable panels & MDX content management.
+Personal website template with collapsible list drawers & MDX content management.
 
 ## Features
 
-- **Resizable Panels**: Drag the dithered borders between panels to create your perfect layout
+- **List Drawers**: Open or close publication and photography lists while reading
 - **Decorative Ribbon**: Book-inspired ribbon bookmark detail
 - **Mobile Responsive**: Seamless hamburger menu for mobile devices
 - **MDX Content System**: Write notes and book reviews in Markdown with frontmatter metadata
@@ -133,7 +133,7 @@ The build converts images in `content/images` to WebP files up to 2000 pixels wi
 - **Styling**: Tailwind CSS 4
 - **UI Components**: Radix UI primitives
 - **Content**: MDX with gray-matter
-- **Layout**: react-resizable-panels
+- **Layout**: Flex panels with collapsible list drawers
 - **TypeScript**: Full type safety
 
 ## License

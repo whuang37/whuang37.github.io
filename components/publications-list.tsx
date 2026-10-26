@@ -4,14 +4,13 @@ import { ListPaneLayout } from "./list-pane-layout"
 
 interface PublicationsListProps {
   selectedPublication: string | null
-  width: number
-  isDragging: boolean
-  onMouseDown: (e: React.MouseEvent) => void
+  open: boolean
 }
 
 const linkLabels: Record<string, string> = {
   doi: "DOI",
   arxiv: "arXiv",
+  biorxiv: "bioRxiv",
   code: "Code",
   video: "Video",
   website: "Website",
@@ -36,18 +35,14 @@ function groupPublicationsByYear() {
 
 export function PublicationsList({
   selectedPublication,
-  width,
-  isDragging,
-  onMouseDown,
+  open,
 }: PublicationsListProps) {
   const groupedPublications = groupPublicationsByYear()
 
   return (
     <ListPaneLayout
-      width={width}
       selectedItem={Boolean(selectedPublication)}
-      isDragging={isDragging}
-      onMouseDown={onMouseDown}
+      open={open}
       header={<h1 className="text-4xl font-serif">Publications</h1>}
     >
       <div className="space-y-8 pb-2 pr-2">
@@ -87,7 +82,12 @@ export function PublicationsList({
                         </span>
                       </div>
                       <p className="break-words text-xs text-muted-foreground transition-opacity [overflow-wrap:anywhere] group-hover:opacity-70">
-                        {publication.authors}
+                        {publication.authors.split(", ").map((author, index) => (
+                          <span key={author}>
+                            {index > 0 && ", "}
+                            {author === "William Huang" ? <span className="font-medium text-foreground/70">{author}</span> : author}
+                          </span>
+                        ))}
                       </p>
                       <p className="break-words text-xs italic text-muted-foreground transition-opacity [overflow-wrap:anywhere] group-hover:opacity-70">
                         {publication.proceeding || "Proceeding not specified"}
