@@ -76,7 +76,7 @@ export const publications: Publication[] = [
   },
   {
     "slug": "choroid-plexus",
-    "title": "Inducible Lipid Storage and Steatosis in the Human Choroid Plexus Associated with Age and Adiposity",
+    "title": "Inducible lipid storage and steatosis in the human choroid plexus associated with age and adiposity",
     "authors": "N. Victoria Espericueta, Michael J. Neel, Yao Wang, Todd J. Soo, Parastou Porahang, Frances A. Goyokpin, Ryan S. Salehi, Sara Khan, Jasmine Lee, Nicolas B. Maramica, Guillermo Flores, Aditi Kulkarni, Sahil S. Plaha, Sam Ghahremani, William Huang, Quinton Smith, Peter Chang, Brett A. Johnson, Edwin S. Monuki",
     "proceeding": "bioRxiv preprint",
     "year": 2026,
