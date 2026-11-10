@@ -34,6 +34,16 @@ jobs:
       - name: Install Ghostscript
         run: sudo apt-get update -qq && sudo apt-get install -y ghostscript
 
+      - name: Restore optimized assets
+        uses: actions/cache@v4
+        with:
+          path: |
+            .tmp/optimized-images
+            .tmp/optimized-pdfs
+          key: optimized-assets-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('scripts/asset-cache.mjs', 'scripts/optimize-images.mjs', 'scripts/optimize-pdfs.mjs', 'package-lock.json', '.github/workflows/deploy.yml') }}-${{ github.sha }}
+          restore-keys: |
+            optimized-assets-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('scripts/asset-cache.mjs', 'scripts/optimize-images.mjs', 'scripts/optimize-pdfs.mjs', 'package-lock.json', '.github/workflows/deploy.yml') }}-
+
       - name: Install dependencies and build
         run: |
           if [ -f package-lock.json ]; then

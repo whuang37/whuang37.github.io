@@ -2,6 +2,7 @@ import fs from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import sharp from "sharp"
+import { fileHash, openAssetCache } from "./asset-cache.mjs"
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const sourceDir = path.join(rootDir, "content/images")
@@ -23,23 +24,34 @@ async function imagePaths(directory) {
   return paths
 }
 
-await fs.rm(outputDir, { recursive: true, force: true })
+const cache = await openAssetCache(outputDir, JSON.stringify({
+  script: await fileHash(fileURLToPath(import.meta.url)),
+  versions: sharp.versions,
+}))
 
 let originalBytes = 0
 let optimizedBytes = 0
+let reused = 0
+let optimized = 0
 for (const sourcePath of await imagePaths(sourceDir)) {
   const relativePath = path.relative(sourceDir, sourcePath).replace(/\.[^.]+$/, ".webp")
   const outputPath = path.join(outputDir, relativePath)
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
 
-  const result = await sharp(sourcePath)
-    .rotate()
-    .resize({ width: maxDimension, height: maxDimension, fit: "inside", withoutEnlargement: true })
-    .webp({ quality: 78, effort: 4 })
-    .toFile(outputPath)
+  if (await cache.reuse(sourcePath, relativePath)) {
+    reused++
+  } else {
+    await sharp(sourcePath)
+      .rotate()
+      .resize({ width: maxDimension, height: maxDimension, fit: "inside", withoutEnlargement: true })
+      .webp({ quality: 78, effort: 4 })
+      .toFile(outputPath)
+    optimized++
+  }
 
   originalBytes += (await fs.stat(sourcePath)).size
-  optimizedBytes += result.size
+  optimizedBytes += (await fs.stat(outputPath)).size
 }
 
-console.log(`✓ Optimized images: ${(originalBytes / 1024 / 1024).toFixed(1)} MB → ${(optimizedBytes / 1024 / 1024).toFixed(1)} MB`)
+await cache.save()
+console.log(`✓ Images: ${optimized} optimized, ${reused} reused; ${(originalBytes / 1024 / 1024).toFixed(1)} MB → ${(optimizedBytes / 1024 / 1024).toFixed(1)} MB`)

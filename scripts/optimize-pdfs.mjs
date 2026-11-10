@@ -3,6 +3,7 @@ import fs from "node:fs/promises"
 import path from "node:path"
 import { promisify } from "node:util"
 import { fileURLToPath } from "node:url"
+import { fileHash, openAssetCache } from "./asset-cache.mjs"
 
 const run = promisify(execFile)
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
@@ -20,14 +21,26 @@ async function pageCount(pdfPath) {
   return count
 }
 
-await fs.rm(outputDir, { recursive: true, force: true })
-await fs.mkdir(outputDir, { recursive: true })
+const { stdout: gsVersion } = await run("gs", ["--version"], { timeout: 10_000 })
+const cache = await openAssetCache(outputDir, JSON.stringify({
+  script: await fileHash(fileURLToPath(import.meta.url)),
+  gsVersion: gsVersion.trim(),
+}))
 
 let originalBytes = 0
 let optimizedBytes = 0
+let reused = 0
+let optimized = 0
 for (const filename of (await fs.readdir(sourceDir)).filter((name) => name.endsWith(".pdf"))) {
   const sourcePath = path.join(sourceDir, filename)
   const outputPath = path.join(outputDir, filename)
+
+  if (await cache.reuse(sourcePath, filename)) {
+    originalBytes += (await fs.stat(sourcePath)).size
+    optimizedBytes += (await fs.stat(outputPath)).size
+    reused++
+    continue
+  }
 
   try {
     await run("gs", [
@@ -51,6 +64,8 @@ for (const filename of (await fs.readdir(sourceDir)).filter((name) => name.endsW
 
   originalBytes += originalSize
   optimizedBytes += Math.min(originalSize, outputSize)
+  optimized++
 }
 
-console.log(`✓ Optimized PDFs: ${(originalBytes / 1024 / 1024).toFixed(1)} MB → ${(optimizedBytes / 1024 / 1024).toFixed(1)} MB`)
+await cache.save()
+console.log(`✓ PDFs: ${optimized} optimized, ${reused} reused; ${(originalBytes / 1024 / 1024).toFixed(1)} MB → ${(optimizedBytes / 1024 / 1024).toFixed(1)} MB`)

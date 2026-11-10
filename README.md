@@ -127,6 +127,10 @@ The build creates direct-link pages for `/cv/`, `/publications/`, `/photography/
 
 The build converts images in `content/images` to WebP files up to 2000 pixels wide or high. Gallery images load as visitors scroll. It also uses Ghostscript to make smaller publication PDFs with the `/prepress` preset. Source images and PDFs stay unchanged. Install Ghostscript before running the build or development server locally.
 
+Optimized assets are cached in `.tmp/optimized-images` and `.tmp/optimized-pdfs`. Builds reuse files when the source contents, optimization settings, tool versions, and output contents match. Changed or missing files are rebuilt, and outputs for deleted sources are removed. Delete these cache folders to force a full rebuild. GitHub Actions restores the cache between builds.
+
+Commit source files only. The `dist/` folder is ignored by Git. GitHub Actions builds it and deploys the result to GitHub Pages.
+
 Desktop and mobile render PDFs with PDF.js in a continuous scroll, with zoom and a download button. PDF downloads use readable filenames without build hashes.
 
 ## Tech Stack

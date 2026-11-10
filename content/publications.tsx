@@ -20,6 +20,18 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    "slug": "biondi-body",
+    "title": "Midlife nonlinearities across scale in Biondi body amyloid formation in the human choroid plexus",
+    "authors": "Michael J. Neel, Natarsha Vukalovich, Parastou Porahang, Chenyu Zhao, William Huang, Sam Ghahremani, Andy Lin, Olivia Sandhu, Binh Nguyen, Kasra Pejhanfar, Erfan Zolfaghari, Eunice Shin, Carol A. Church, Joni L. Ricks-Oddie, John M. Ringman, Samuel Guzman, Peter D. Chang, Brett A. Johnson, Edwin S. Monuki",
+    "proceeding": "bioRxiv preprint",
+    "year": 2026,
+    "links": {
+      "biorxiv": "https://www.biorxiv.org/content/10.64898/2026.11.04.764372v1"
+    },
+    "hasPdf": true,
+    "pdfPath": "/content/pdfs/publications/biondi-body.pdf"
+  },
+  {
     "slug": "genxr-bench",
     "title": "GenXR-Bench: Benchmarking Coding Agents for Interactive XR Development",
     "authors": "William Huang, David Li, Xiang 'Anthony' Chen, Xun Qian, Nels Numan, Zhongyi Zhou, Hyunsung Cho, Salman Muin Kayser Chishti, Ding Xia, Xincheng Huang, Jiahao Ren, Faraz Faruqi, Tianyu Xu, Yang Zhang, David Kim, Ruofei Du",
