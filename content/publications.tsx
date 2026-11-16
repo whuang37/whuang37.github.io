@@ -32,6 +32,19 @@ export const publications: Publication[] = [
     "pdfPath": "/content/pdfs/publications/biondi-body.pdf"
   },
   {
+    "slug": "stromal-fibrosis",
+    "title": "Negative association between nodular stromal fibrosis and large lipid droplets in human choroid plexus epithelial cells",
+    "authors": "Michael J. Neel, N. Victoria Espericueta, Aarij Gora, Jessica M. Yeung, Ashley A. Nguyen, Juslyn Z. Chan, William Huang, Sam Ghahremani, Eunice Shin, Jonathan Zebroski, Jackson Sousa, Nathan Schacherl, Kean Ehsani, Christina M. Magana-Ramirez, Daniel Gillen, Peter Chang, Brett A. Johnson, Edwin S. Monuki",
+    "proceeding": "bioRxiv preprint",
+    "year": 2026,
+    "links": {
+      "doi": "https://doi.org/10.64898/2026.11.12.766290",
+      "biorxiv": "https://www.biorxiv.org/content/10.64898/2026.11.12.766290v1"
+    },
+    "hasPdf": true,
+    "pdfPath": "/content/pdfs/publications/stromal-fibrosis.pdf"
+  },
+  {
     "slug": "genxr-bench",
     "title": "GenXR-Bench: Benchmarking Coding Agents for Interactive XR Development",
     "authors": "William Huang, David Li, Xiang 'Anthony' Chen, Xun Qian, Nels Numan, Zhongyi Zhou, Hyunsung Cho, Salman Muin Kayser Chishti, Ding Xia, Xincheng Huang, Jiahao Ren, Faraz Faruqi, Tianyu Xu, Yang Zhang, David Kim, Ruofei Du",
